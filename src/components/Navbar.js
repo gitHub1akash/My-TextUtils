@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 export default function Navbar(props) {
   console.log(props.mode + " navbar");
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode}`}
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     style = {{backgroundColor : props.mode === 'dark' ? '#515151' : 'white' ,color : props.mode === 'dark' ? 'white' : 'black'}}>
     <div className="container-fluid">
     {/* <Link className="navbar-brand" to="/">{props.title}</Link> */}

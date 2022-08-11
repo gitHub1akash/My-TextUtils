@@ -37,6 +37,7 @@ console.log();
   };
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard " , "success")
   };
   const handleExtraSpaces = () => {
@@ -55,6 +56,7 @@ console.log();
       newText[i]=newText[i].charAt(0).toUpperCase() + newText[i].slice(1).toLowerCase();
     }
     setText(newText.join(" "))
+    props.showAlert("Converted first letter to capital " , "success");
   };
 
   const handleOnChange = (event) => {
@@ -95,26 +97,26 @@ console.log();
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-5 my-2" onClick={handleClClick}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-5 my-2" onClick={handleClClick}>
           Clear
         </button>
         
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-2" onClick={handleLoClick}>
           Convert to Lowercase
         </button>
         
-        <button className="btn btn-primary mx-5 my-2" onClick={handleCopy}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-5 my-2" onClick={handleCopy}>
           Copy
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>
           Remove Extra Spaces
         </button>
         
-        <button className="btn btn-primary mx-2" onClick={handlefirstUp}>
+        <button disabled={count(text)===0} className="btn btn-primary mx-4" onClick={handlefirstUp}>
           First letter Upper Case
         </button>
       </div>
@@ -126,7 +128,7 @@ console.log();
                 {0.008 * count(text)} Minutes to read.
             </p>
             <h2>Preview</h2>
-            <p>{text.charAt(0) === '' ? "Enter something to preview" : text}</p>
+            <p>{count(text) === 0? "Nothing to preview" : text}</p>
       </div>
     </>
   );
