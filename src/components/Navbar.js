@@ -21,7 +21,7 @@ export default function Navbar(props) {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
           {/* <Link className="nav-link act" aria-current="page" to="/">Home</Link> */}
-          <a className="nav-link act" aria-current="page" href="/">Home</a>
+          <a className="nav-link act" aria-current="page" href="#">Home</a>
         </li>
         {/* <li className="nav-item">
           <Link className="nav-link act" to="/about">About</Link>
