@@ -64,7 +64,7 @@ console.log();
     setText(event.target.value);
   };
   const count = (ntext)=>{
-    let ar = ntext.split(" ");
+    let ar = ntext.split(/\s+/);
     let sum = ar.length;
     if(ntext === ''){
       sum = 0;
@@ -100,7 +100,7 @@ console.log();
         <button disabled={count(text)===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button disabled={count(text)===0} className="btn btn-primary mx-5 my-2" onClick={handleClClick}>
+        <button disabled={count(text)===0} className="btn btn-primary my-2" onClick={handleClClick}>
           Clear
         </button>
         
@@ -108,7 +108,7 @@ console.log();
           Convert to Lowercase
         </button>
         
-        <button disabled={count(text)===0} className="btn btn-primary mx-5 my-2" onClick={handleCopy}>
+        <button disabled={count(text)===0} className="btn btn-primary my-2" onClick={handleCopy}>
           Copy
         </button>
 
@@ -116,11 +116,11 @@ console.log();
           Remove Extra Spaces
         </button>
         
-        <button disabled={count(text)===0} className="btn btn-primary mx-4" onClick={handlefirstUp}>
+        <button disabled={count(text)===0} className="btn btn-primary" style={{margin: '8px'}} onClick={handlefirstUp}>
           First letter Upper Case
         </button>
       </div>
-      <div className="container my-3"style = {{backgroundColor : props.mode === 'dark' ? props.col : 'white' ,color : props.mode === 'dark' ? 'white' : 'black'}}>
+      <div className="container"style = {{backgroundColor : props.mode === 'dark' ? props.col : 'white' ,color : props.mode === 'dark' ? 'white' : 'black'}}>
             <h2>Your text summary</h2>
             <p>
                 {count(text)} words , {text.length} characters</p>
